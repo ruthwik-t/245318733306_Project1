@@ -6,8 +6,8 @@ const { sign }= require('jsonwebtoken')
 router.post('/', (req, res) => {
     const username = req.body.username
     const password = req.body.password
-    const mockedUsername = process.env.USER
-    const mockedPassword = process.env.PASSWORD
+    const mockedUsername = process.env.MOCKUSERNAME
+    const mockedPassword = process.env.MOCKPASSWORD
     if (username && password) {
         if (username === mockedUsername && password === mockedPassword) {
             const token = sign({ username: username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '24h'})
